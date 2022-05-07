@@ -55,7 +55,7 @@ export const FeedbackProvider=({children})=>{
     const updateFeedback=async (id,uptItem)=>{
         const response=await fetch(`/feedback/${id}`,{
             method:'PUT',
-            header:{
+            headers:{
                 'Content-Type':'application/json'
             },
             body:JSON.stringify(uptItem)
@@ -63,8 +63,8 @@ export const FeedbackProvider=({children})=>{
         const data=await response.json()
         setFeedback(feedback.map((item)=>item.id===id ? data:item))
         setFeedbackEdit({
-            item:{},
-            edit:false
+            item: {},
+            edit: false,
         })
     }
 
